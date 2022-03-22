@@ -69,7 +69,7 @@ int main( int argc, char *argv[] )
 	// These are the default configuration values used
 	// if no command line arguments are given.
 
-	const char *outfile = "mandel.bmp";
+	const char *outfile = "./output/mandel.bmp";
 	double xcenter = 0;
 	double ycenter = 0;
 	double scale = 4;
@@ -115,7 +115,7 @@ int main( int argc, char *argv[] )
 	}
 
 	// Display the configuration of the image.
-	printf("mandel: x=%lf y=%lf scale=%lf max=%d outfile=%s\n",xcenter,ycenter,scale,max,outfile);
+	printf("mandel: x=%lf y=%lf scale=%lf max=%d no_threads=%d outfile=%s\n",xcenter,ycenter,scale,max,no_threads,outfile);
 
 	// Create a bitmap of the appropriate size.
 	struct bitmap *bm = bitmap_create(image_width,image_height);
@@ -141,7 +141,7 @@ int main( int argc, char *argv[] )
 	long time_to_execute = ( end_time.tv_sec * 1000000 + end_time.tv_usec ) -
 							( begin_time.tv_sec * 1000000 + begin_time.tv_usec );
 
-	printf("This code took %ld microseconds to execute\n", time_to_execute);
+	printf("execution time: %ld ms\n", time_to_execute);
 	//====================================
 	return 0;
 }
